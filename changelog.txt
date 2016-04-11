@@ -1,0 +1,6 @@
+Version 1.1
+4/6/16
+---------------------------------------
+
+- Added better support for using a front page vs a blog index page for the homepage
+- Removed support for post formats because they weren't implemented correctly
