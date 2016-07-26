@@ -59,7 +59,7 @@ sea green  #8af7da
 HOW TO GET HELP
 ------------------------------
 
-Please go to http://www.zenwebthemes.com/support/ to see all of the support options.
+Please go to http://www.zenwebthemes.com/theme-support/ to see all of the support options.
 
 ------------------------------
 UPDATES AND FREEBIES

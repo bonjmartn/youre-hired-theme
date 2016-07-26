@@ -33,10 +33,10 @@
         <?php endwhile; else: ?>
 
         <div class="page-header">
-        <h1>Oh no!</h1>
+            <h1 class="page-title"><?php _e( 'Oh no!', 'youre-hired-free' ); ?></h1>
         </div>
 
-        <p>No content is appearing for this page!</p>
+        <p><?php _e( 'No content is appearing for this page!', 'youre-hired-free' ); ?></p>
 
         <?php endif; ?>
 

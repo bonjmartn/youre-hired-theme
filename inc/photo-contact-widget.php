@@ -88,7 +88,7 @@ public function zen_assets() {
         ?>
 
         <p>
-            <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:', 'youre-hired' ); ?></label>
             <input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
             <input class="upload_image_button" type="button" value="Upload Image" />
         </p>

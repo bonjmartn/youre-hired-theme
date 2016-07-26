@@ -109,12 +109,12 @@ class summary_widget extends WP_Widget {
     $myname = ! empty( $instance['myname'] ) ? $instance['myname'] : __( 'Your Name', 'youre-hired-free' );
     $mytitle = ! empty( $instance['mytitle'] ) ? $instance['mytitle'] : __( 'Professional Title', 'youre-hired-free' );
     $specialty = ! empty( $instance['specialty'] ) ? $instance['specialty'] : __( 'Specialty', 'youre-hired-free' );
-    $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( 'https://www.facebook.com', 'youre-hired-free' );
-    $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( 'https://www.twitter.com', 'youre-hired-free' );
-    $pinterest = ! empty( $instance['pinterest'] ) ? $instance['pinterest'] : __( 'https://www.pinterest.com', 'youre-hired-free' );
-    $instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : __( 'https://www.instagram.com', 'youre-hired-free' );
-    $youtube = ! empty( $instance['youtube'] ) ? $instance['youtube'] : __( 'https://www.youtube.com', 'youre-hired-free' );
-    $linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( 'https://www.linkedin.com', 'youre-hired-free' );
+    $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( '', 'youre-hired-free' );
+    $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( '', 'youre-hired-free' );
+    $pinterest = ! empty( $instance['pinterest'] ) ? $instance['pinterest'] : __( '', 'youre-hired-free' );
+    $instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : __( '', 'youre-hired-free' );
+    $youtube = ! empty( $instance['youtube'] ) ? $instance['youtube'] : __( '', 'youre-hired-free' );
+    $linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( '', 'youre-hired-free' );
     $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( '', 'youre-hired-free' );
 
     ?>
