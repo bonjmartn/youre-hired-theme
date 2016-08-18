@@ -18,8 +18,8 @@ class languages_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'languages_widget', // Base ID
-      __( 'Languages', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the languages widget area', 'youre-hired-free' ), ) // Args
+      __( 'Languages', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the languages widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -37,7 +37,7 @@ class languages_widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
 
-    $proficiency = $instance['proficiency'];
+    $proficiency = sanitize_text_field( $instance['proficiency'] );
 
     // if the proficiency name field is set
     if ( ! empty( $instance['proficiency'] ) ) {
@@ -55,20 +55,20 @@ class languages_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired-free' );
-    $proficiency = ! empty( $instance['proficiency'] ) ? $instance['proficiency'] : __( 'Proficiency Level', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired' );
+    $proficiency = ! empty( $instance['proficiency'] ) ? $instance['proficiency'] : __( 'Proficiency Level', 'youre-hired' );
 
     ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Language:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Language:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
     value="<?php echo esc_attr( $title ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'proficiency' ); ?>"><?php _e( 'Proficiency Level:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'proficiency' ); ?>"><?php _e( 'Proficiency Level:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'proficiency' ); ?>" name="<?php echo $this->get_field_name( 'proficiency' ); ?>" type="text" 
     value="<?php echo esc_attr( $proficiency ); ?>">
     </p>

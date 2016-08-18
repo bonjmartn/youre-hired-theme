@@ -18,8 +18,8 @@ class summary_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'summary_widget', // Base ID
-      __( 'Summary', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the "Summary - Name, Title, Social Icons" widget area', 'youre-hired-free' ), ) // Args
+      __( 'Summary', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the "Summary - Name, Title, Social Icons" widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -37,15 +37,15 @@ class summary_widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
 
-    $myname = $instance['myname'];
-    $mytitle = $instance['mytitle'];
-    $specialty = $instance['specialty'];
-    $facebook = $instance['facebook'];
-    $twitter = $instance['twitter'];
-    $pinterest = $instance['pinterest'];
-    $instagram = $instance['instagram'];
-    $youtube = $instance['youtube'];
-    $linkedin = $instance['linkedin'];
+    $myname = sanitize_text_field( $instance['myname'] );
+    $mytitle = sanitize_text_field( $instance['mytitle'] );
+    $specialty = sanitize_text_field( $instance['specialty'] );
+    $facebook = esc_url( $instance['facebook'] );
+    $twitter = esc_url( $instance['twitter'] );
+    $pinterest = esc_url( $instance['pinterest'] );
+    $instagram = esc_url( $instance['instagram'] );
+    $youtube = esc_url( $instance['youtube'] );
+    $linkedin = esc_url( $instance['linkedin'] );
 
     // if the name field is set
     if ( ! empty( $instance['myname'] ) ) {
@@ -105,76 +105,76 @@ class summary_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired-free' );
-    $myname = ! empty( $instance['myname'] ) ? $instance['myname'] : __( 'Your Name', 'youre-hired-free' );
-    $mytitle = ! empty( $instance['mytitle'] ) ? $instance['mytitle'] : __( 'Professional Title', 'youre-hired-free' );
-    $specialty = ! empty( $instance['specialty'] ) ? $instance['specialty'] : __( 'Specialty', 'youre-hired-free' );
-    $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( '', 'youre-hired-free' );
-    $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( '', 'youre-hired-free' );
-    $pinterest = ! empty( $instance['pinterest'] ) ? $instance['pinterest'] : __( '', 'youre-hired-free' );
-    $instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : __( '', 'youre-hired-free' );
-    $youtube = ! empty( $instance['youtube'] ) ? $instance['youtube'] : __( '', 'youre-hired-free' );
-    $linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( '', 'youre-hired-free' );
-    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( '', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired' );
+    $myname = ! empty( $instance['myname'] ) ? $instance['myname'] : __( 'Your Name', 'youre-hired' );
+    $mytitle = ! empty( $instance['mytitle'] ) ? $instance['mytitle'] : __( 'Professional Title', 'youre-hired' );
+    $specialty = ! empty( $instance['specialty'] ) ? $instance['specialty'] : __( 'Specialty', 'youre-hired' );
+    $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( '', 'youre-hired' );
+    $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( '', 'youre-hired' );
+    $pinterest = ! empty( $instance['pinterest'] ) ? $instance['pinterest'] : __( '', 'youre-hired' );
+    $instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : __( '', 'youre-hired' );
+    $youtube = ! empty( $instance['youtube'] ) ? $instance['youtube'] : __( '', 'youre-hired' );
+    $linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( '', 'youre-hired' );
+    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( '', 'youre-hired' );
 
     ?>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'myname' ); ?>"><?php _e( 'Name:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'myname' ); ?>"><?php _e( 'Name:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'myname' ); ?>" name="<?php echo $this->get_field_name( 'myname' ); ?>" type="text" 
     value="<?php echo esc_attr( $myname ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'mytitle' ); ?>"><?php _e( 'Professional Title:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'mytitle' ); ?>"><?php _e( 'Professional Title:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'mytitle' ); ?>" name="<?php echo $this->get_field_name( 'mytitle' ); ?>" type="text" 
     value="<?php echo esc_attr( $mytitle ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'specialty' ); ?>"><?php _e( 'Specialty:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'specialty' ); ?>"><?php _e( 'Specialty:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'specialty' ); ?>" name="<?php echo $this->get_field_name( 'specialty' ); ?>" type="text" 
     value="<?php echo esc_attr( $specialty ); ?>">
     </p>
 
      <p>
-    <label for="<?php echo $this->get_field_id('facebook_field'); ?>"><?php _e('Enter the URL for your Facebook page', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('facebook_field'); ?>"><?php _e('Enter the URL for your Facebook page', 'youre-hired'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('facebook_field'); ?>" name="<?php echo $this->get_field_name('facebook_field'); ?>" type="text" 
     value="<?php echo esc_attr( $facebook ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('twitter_field'); ?>"><?php _e('Enter the URL for your Twitter profile', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('twitter_field'); ?>"><?php _e('Enter the URL for your Twitter profile', 'youre-hired'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('twitter_field'); ?>" name="<?php echo $this->get_field_name('twitter_field'); ?>" type="text" 
     value="<?php echo esc_attr( $twitter ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('pinterest_field'); ?>"><?php _e('Enter the URL for your Pinterest page', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('pinterest_field'); ?>"><?php _e('Enter the URL for your Pinterest page', 'youre-hired'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('pinterest_field'); ?>" name="<?php echo $this->get_field_name('pinterest_field'); ?>" type="text" 
     value="<?php echo esc_attr( $pinterest ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('instagram_field'); ?>"><?php _e('Enter the URL for your Instagram profile', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('instagram_field'); ?>"><?php _e('Enter the URL for your Instagram profile', 'youre-hired'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('instagram_field'); ?>" name="<?php echo $this->get_field_name('instagram_field'); ?>" type="text" 
     value="<?php echo esc_attr( $instagram ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('youtube_field'); ?>"><?php _e('Enter the URL for your YouTube page', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('youtube_field'); ?>"><?php _e('Enter the URL for your YouTube page', 'youre-hired'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('youtube_field'); ?>" name="<?php echo $this->get_field_name('youtube_field'); ?>" type="text" 
     value="<?php echo esc_attr( $youtube ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('linkedin_field'); ?>"><?php _e('Enter the URL for your LinkedIn profile', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('linkedin_field'); ?>"><?php _e('Enter the URL for your LinkedIn profile', 'youre-hired'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('linkedin_field'); ?>" name="<?php echo $this->get_field_name('linkedin_field'); ?>" type="text" 
     value="<?php echo esc_attr( $linkedin ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Write a brief summary of what you are looking for:', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Write a brief summary of what you are looking for:', 'youre-hired'); ?></label>
     <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 

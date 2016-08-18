@@ -18,8 +18,8 @@ class download_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'download_widget', // Base ID
-      __( 'Resume Download', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the "Resume Download" widget area', 'youre-hired-free' ), ) // Args
+      __( 'Resume Download', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the "Resume Download" widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -37,8 +37,8 @@ class download_widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
 
-    $linktext = $instance['linktext'];
-    $linkURL = $instance['linkURL'];
+    $linktext = sanitize_text_field( $instance['linktext'] );
+    $linkURL = esc_url( $instance['linkURL'] );
 
     // if the linkURL field is set
     if ( ! empty( $instance['linkURL'] ) ) {
@@ -56,20 +56,20 @@ class download_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired-free' );
-    $linktext = ! empty( $instance['linktext'] ) ? $instance['linktext'] : __( 'Download Resume', 'youre-hired-free' );
-    $linkURL = ! empty( $instance['linkURL'] ) ? $instance['linkURL'] : __( '', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired' );
+    $linktext = ! empty( $instance['linktext'] ) ? $instance['linktext'] : __( 'Download Resume', 'youre-hired' );
+    $linkURL = ! empty( $instance['linkURL'] ) ? $instance['linkURL'] : __( '', 'youre-hired' );
     ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'linktext' ); ?>"><?php _e( 'Link Text:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'linktext' ); ?>"><?php _e( 'Link Text:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'linktext' ); ?>" name="<?php echo $this->get_field_name( 'linktext' ); ?>" type="text" 
     value="<?php echo esc_attr( $linktext ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'linkURL' ); ?>"><?php _e( 'Link URL', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'linkURL' ); ?>"><?php _e( 'Link URL', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'linkURL' ); ?>" name="<?php echo $this->get_field_name( 'linkURL' ); ?>" type="text" 
     value="<?php echo esc_attr( $linkURL ); ?>">
     </p>

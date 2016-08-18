@@ -18,8 +18,8 @@ class education_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'education_widget', // Base ID
-      __( 'Education', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the Education widget area', 'youre-hired-free' ), ) // Args
+      __( 'Education', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the Education widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -37,8 +37,8 @@ class education_widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
 
-    $school = $instance['school'];
-    $dates = $instance['dates'];
+    $school = sanitize_text_field( $instance['school'] );
+    $dates = sanitize_text_field( $instance['dates'] );
 
     // if the school name field is set
     if ( ! empty( $instance['school'] ) ) {
@@ -56,27 +56,27 @@ class education_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired-free' );
-    $school = ! empty( $instance['school'] ) ? $instance['school'] : __( 'School Name', 'youre-hired-free' );
-    $dates = ! empty( $instance['dates'] ) ? $instance['dates'] : __( '2000-2004', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired' );
+    $school = ! empty( $instance['school'] ) ? $instance['school'] : __( 'School Name', 'youre-hired' );
+    $dates = ! empty( $instance['dates'] ) ? $instance['dates'] : __( '2000-2004', 'youre-hired' );
 
     ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Degree, Major:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Degree, Major:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
     value="<?php echo esc_attr( $title ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'school' ); ?>"><?php _e( 'School Name:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'school' ); ?>"><?php _e( 'School Name:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'school' ); ?>" name="<?php echo $this->get_field_name( 'school' ); ?>" type="text" 
     value="<?php echo esc_attr( $school ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'dates' ); ?>"><?php _e( 'Dates:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'dates' ); ?>"><?php _e( 'Dates:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'dates' ); ?>" name="<?php echo $this->get_field_name( 'dates' ); ?>" type="text" 
     value="<?php echo esc_attr( $dates ); ?>">
     </p>

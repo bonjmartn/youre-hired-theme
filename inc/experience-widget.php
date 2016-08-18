@@ -18,8 +18,8 @@ class experience_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'experience_widget', // Base ID
-      __( 'Experience', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the Experience widget area', 'youre-hired-free' ), ) // Args
+      __( 'Experience', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the Experience widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -37,9 +37,9 @@ class experience_widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
 
-    $company = $instance['company'];
-    $location = $instance['location'];
-    $dates = $instance['dates'];
+    $company = sanitize_text_field( $instance['company'] );
+    $location = sanitize_text_field( $instance['location'] );
+    $dates = sanitize_text_field( $instance['dates'] );
 
 
     // if the name field is set
@@ -77,41 +77,41 @@ class experience_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired-free' );
-    $company = ! empty( $instance['company'] ) ? $instance['company'] : __( 'Company', 'youre-hired-free' );
-    $location = ! empty( $instance['location'] ) ? $instance['location'] : __( 'Location', 'youre-hired-free' );
-    $dates = ! empty( $instance['dates'] ) ? $instance['dates'] : __( 'Dates', 'youre-hired-free' );
-    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( '', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired' );
+    $company = ! empty( $instance['company'] ) ? $instance['company'] : __( 'Company', 'youre-hired' );
+    $location = ! empty( $instance['location'] ) ? $instance['location'] : __( 'Location', 'youre-hired' );
+    $dates = ! empty( $instance['dates'] ) ? $instance['dates'] : __( 'Dates', 'youre-hired' );
+    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( '', 'youre-hired' );
 
     ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Position Title:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Position Title:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
     value="<?php echo esc_attr( $title ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'company' ); ?>"><?php _e( 'Company Name:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'company' ); ?>"><?php _e( 'Company Name:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'company' ); ?>" name="<?php echo $this->get_field_name( 'company' ); ?>" type="text" 
     value="<?php echo esc_attr( $company ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'location' ); ?>"><?php _e( 'Location:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'location' ); ?>"><?php _e( 'Location:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'location' ); ?>" name="<?php echo $this->get_field_name( 'location' ); ?>" type="text" 
     value="<?php echo esc_attr( $location ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'dates' ); ?>"><?php _e( 'Dates:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'dates' ); ?>"><?php _e( 'Dates:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'dates' ); ?>" name="<?php echo $this->get_field_name( 'dates' ); ?>" type="text" 
     value="<?php echo esc_attr( $dates ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Explain your experience in this position:', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Explain your experience in this position:', 'youre-hired'); ?></label>
     <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 
