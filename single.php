@@ -23,14 +23,14 @@
 
       <?php
         $defaults = array(
-          'before'           => '<p>' . __( 'Pages:', 'youre-hired-free' ),
+          'before'           => '<p>' . __( 'Pages:', 'youre-hired' ),
           'after'            => '</p>',
           'link_before'      => '',
           'link_after'       => '',
           'next_or_number'   => 'number',
           'separator'        => ' ',
-          'nextpagelink'     => __( 'Next page', 'youre-hired-free' ),
-          'previouspagelink' => __( 'Previous page', 'youre-hired-free' ),
+          'nextpagelink'     => __( 'Next page', 'youre-hired' ),
+          'previouspagelink' => __( 'Previous page', 'youre-hired' ),
           'pagelink'         => '%',
           'echo'             => 1
         );

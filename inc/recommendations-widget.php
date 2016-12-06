@@ -17,8 +17,8 @@ class recommendations_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'recommendations_widget', // Base ID
-      __( 'Recommendations', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Recommendations', 'youre-hired-free' ), ) // Args
+      __( 'Recommendations', 'youre-hired' ), // Name
+      array( 'description' => __( 'Recommendations', 'youre-hired' ), ) // Args
     );
 
     add_action('admin_enqueue_scripts', array($this, 'zen_assets'));
@@ -97,23 +97,23 @@ public function zen_assets() {
 
         ?>
         <p>
-            <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'First and Last Name:', 'youre-hired-free' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'First and Last Name:', 'youre-hired' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_name( 'company' ); ?>"><?php _e( 'Title, Company Name:', 'youre-hired-free' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'company' ); ?>"><?php _e( 'Title, Company Name:', 'youre-hired' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'company' ); ?>" name="<?php echo $this->get_field_name( 'company' ); ?>" type="text" value="<?php echo esc_attr( $company ); ?>" />
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:', 'youre-hired-free' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:', 'youre-hired' ); ?></label>
             <input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
             <input class="upload_image_button" type="button" value="Upload Image" />
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_name( 'description' ); ?>"><?php _e( 'Text of recommendation:', 'youre-hired-free' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'description' ); ?>"><?php _e( 'Text of recommendation:', 'youre-hired' ); ?></label>
             <textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" ><?php echo esc_attr( $description ); ?></textarea>
         </p>
 

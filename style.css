@@ -1,14 +1,14 @@
 /*
-Theme Name: Youre Hired Free
-Theme URI: https://www.zenwebthemes.com/shop-themes/youre-hired-free/
+Theme Name: Youre Hired
+Theme URI: https://www.zenwebthemes.com/shop-themes/youre-hired/
 Author: Bonnie Martin
 Author URI: https://www.zenwebthemes.com
-Description: You're Hired is a responsive resume or CV theme with a modern, flat design. You can use it as a one-page theme or as a multi-page theme. This is the free version.
+Description: You're Hired is a responsive resume or CV theme with a modern, flat design. You can use it as a one-page theme or as a multi-page theme.
 Version: 1.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: two-columns, right-sidebar, custom-menu, featured-images, footer-widgets, theme-options, portfolio
-Text Domain: youre-hired-free
+Tags: two-columns, left-sidebar, right-sidebar, full-width-template, custom-colors, custom-header, custom-menu, featured-images, footer-widgets, theme-options, portfolio
+Text Domain: youre-hired
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -279,7 +279,7 @@ html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
 	background: #4D4D4D;
-	color: #8af7da;
+	color: #CCEA9B;
 }
 button:focus,
 html input[type="button"]:focus,
@@ -531,7 +531,7 @@ a:active {
 	font-size: 40px;
 	padding-bottom: 20px;
 	padding-top: 40px;
-	color: #8af7da;
+	color: #CCEA9B;
 }
 
 /* Name and Headline */
@@ -546,7 +546,7 @@ a:active {
 }
 
 .name {
-	background-color: #8af7da;
+	background-color: #CCEA9B;
 	text-transform: uppercase;
 	font-size: 38px;
 	padding-top: 25px;
@@ -593,12 +593,12 @@ a:active {
 
 .contact .fa {
 	font-size: 40px;
-	color: #8af7da;
+	color: #CCEA9B;
 }
 
 .contact img,
 .recommendations img {
-	border: 4px solid #8af7da;
+	border: 4px solid #CCEA9B;
 	border-radius: 50%;
 	width: 100%;
 	display: block;
@@ -610,7 +610,7 @@ a:active {
 /* Download Resume */
 
 .download-resume {
-	border: solid 2px #8af7da;
+	border: solid 2px #CCEA9B;
 	border-radius: 5px;
 	padding: 20px;
 	text-align: center;
@@ -635,7 +635,7 @@ a:active {
 	font-size: 20px;
 	text-transform: uppercase;
 	letter-spacing: 3px;
-	border-bottom: 1px solid #8af7da;
+	border-bottom: 1px solid #CCEA9B;
 	padding-bottom: 8px;
 	text-align: center;
 }
@@ -684,7 +684,7 @@ a:active {
 }
 
 .skills h3 {
-	background-color: #8af7da;
+	background-color: #CCEA9B;
 	color: #4D4D4D;
 	padding: 6px;
 	letter-spacing: 3px;
@@ -773,7 +773,7 @@ a:active {
 /* Footer Widgets */
 
 footer {
-	background-color: #8af7da;
+	background-color: #CCEA9B;
 	color: #4D4D4D;
 	padding: 20px;
 }
@@ -805,7 +805,7 @@ footer html input[type="button"]:hover,
 footer input[type="reset"]:hover,
 footer input[type="submit"]:hover {
 	background: #4D4D4D;
-	color: #8af7da;
+	color: #CCEA9B;
 }
 
 .footer-contact {
@@ -819,7 +819,7 @@ footer input[type="submit"]:hover {
 /* =General Widget Stuff 
 ----------------------------------------------- */
 
-.widget-area { /* This is a standard WordPress class that you can use if you want to */
+.widget-area { /* This is a standard WordPress class that you can use if you want to */	
 }
 
 .widget {
@@ -939,6 +939,12 @@ Some of these are left blank so that you can reference them for your own styling
 .page-title { /* Page titles */
 }
 
+.page-header {
+	padding-bottom: 1px;
+    margin: 25px 0 2px 0;
+    border-bottom: 0px;
+}
+
 body.search .page-title,
 body.archive .page-title { /* Optional, if you want your page titles to look different on search and archive pages */
 }
@@ -995,12 +1001,6 @@ body.archive .page-title { /* Optional, if you want your page titles to look dif
 .comment-content tr.odd td { /* If you want to apply alternate styles to even/odd table rows */
 }
 
-.page-header {
-	padding-bottom: 1px;
-    margin: 25px 0 2px 0;
-    border-bottom: 0px;
-}
-
 .page-links { /* Style the page numbers for multi-page posts (posts that have been split with <!--next-page -->. */
 	clear: both;
 	margin: 0 0 1.5em;
@@ -1010,7 +1010,7 @@ body.archive .page-title { /* Optional, if you want your page titles to look dif
 /* =Aside Post Format
 ----------------------------------------------- */
 
-/* This is a standard WordPress class that you can use if you want to */
+/* Just put ".format-aside" before any of the above classes to create special formatting for Aside posts */
 
 .format-aside .entry-content {
 	border-left: 4px solid #000;

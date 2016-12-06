@@ -65,7 +65,7 @@ add_filter( 'frontpage_template', 'hired_filter_front_page_template' );
 
 function hired_google_fonts() {
   $query_args = array(
-    'family' => 'Noto+Sans:400,700,700italic,400italic|Open+Sans:400,700,700italic,400italic',
+    'family' => 'Noto+Sans:400,700,700italic,400italic|Open+Sans:400,700,700italic,400italic|Roboto:400,400italic,700,700italic|Lato:400,400italic,700,700italic|Source+Sans+Pro:400,400italic,700,700italic|Lora:400,400italic,700|Ubuntu:400,400italic,700,700italic|Libre+Baskerville:400,400italic,700',
     'subset' => 'latin,latin-ext',
   );
   wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
@@ -86,7 +86,7 @@ function hired_register_theme_menus() {
 
 	register_nav_menus (
 		array (
-			'header-menu' => __( 'Header Menu', 'youre-hired-free')
+			'header-menu' => __( 'Header Menu', 'youre-hired')
 	));
 }
 

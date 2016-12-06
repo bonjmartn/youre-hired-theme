@@ -27,4 +27,4 @@
         );
         ?>
 
-</div> <!-- end of full container -->
+</div>

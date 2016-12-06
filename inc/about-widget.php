@@ -18,8 +18,8 @@ class about_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'about_widget', // Base ID
-      __( 'About Me', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the About Me widget area', 'youre-hired-free' ), ) // Args
+      __( 'About Me', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the About Me widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -54,13 +54,13 @@ class about_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'About Me', 'youre-hired-free' );
-    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( 'About Me Text', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'About Me', 'youre-hired' );
+    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( 'About Me Text', 'youre-hired' );
       ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Write a paragraph about yourself', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Write a paragraph about yourself', 'youre-hired'); ?></label>
     <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 

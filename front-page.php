@@ -145,8 +145,6 @@
 
 	</div>
 
-<!-- RECOMMENDATIONS -->
-
 	<div class="section group">
 
 <!-- PROJECTS -->

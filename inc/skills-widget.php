@@ -18,8 +18,8 @@ class skills_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'skills_widget', // Base ID
-      __( 'Skills', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Drag me to the Skills widget area. You can use multiple widgets for more than one group of skills.', 'youre-hired-free' ), ) // Args
+      __( 'Skills', 'youre-hired' ), // Name
+      array( 'description' => __( 'Drag me to the Skills widget area. You can use multiple widgets for more than one group of skills.', 'youre-hired' ), ) // Args
     );
   }
 
@@ -54,19 +54,19 @@ class skills_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Skills', 'youre-hired-free' );
-    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( 'Skills List', 'youre-hired-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Skills', 'youre-hired' );
+    $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( 'Skills List', 'youre-hired' );
       ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Skills Group Title:', 'youre-hired-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Skills Group Title:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
     value="<?php echo esc_attr( $title ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Enter one skill per line:', 'youre-hired-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Enter one skill per line:', 'youre-hired'); ?></label>
     <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 

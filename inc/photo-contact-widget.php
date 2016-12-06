@@ -17,8 +17,8 @@ class contact_widget extends WP_Widget {
   public function __construct() {
     parent::__construct(
       'contact_widget', // Base ID
-      __( 'Photo and Contact', 'youre-hired-free' ), // Name
-      array( 'description' => __( 'Photo and contact information', 'youre-hired-free' ), ) // Args
+      __( 'Photo and Contact', 'youre-hired' ), // Name
+      array( 'description' => __( 'Photo and contact information', 'youre-hired' ), ) // Args
     );
 
     add_action('admin_enqueue_scripts', array($this, 'zen_assets'));
@@ -94,7 +94,7 @@ public function zen_assets() {
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_name( 'description' ); ?>"><?php _e( 'Contact Information:', 'youre-hired-free' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'description' ); ?>"><?php _e( 'Contact Information:', 'youre-hired' ); ?></label>
             <textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" ><?php echo esc_attr( $description ); ?></textarea>
         </p>
 
