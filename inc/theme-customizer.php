@@ -76,7 +76,7 @@ function youre_hired_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'youre_hired_accent_color',
       array(
-          'default'         => '#CCEA9B',
+          'default'         => '#1d1c47',
           'transport'       => 'postMessage',
           'sanitize_callback' => 'sanitize_text'
       )
@@ -107,7 +107,7 @@ function youre_hired_customize_register( $wp_customize ) {
    $wp_customize->add_setting(
       'youre_hired_font_type',
       array(
-          'default'         => 'Noto Sans',
+          'default'         => 'Lato',
           'transport'       => 'postMessage',
           'sanitize_callback' => 'sanitize_text'
       )
@@ -123,14 +123,28 @@ function youre_hired_customize_register( $wp_customize ) {
                 'settings'       => 'youre_hired_font_type',
                 'type'           => 'select',
                 'choices'        => array(
-                  'Noto Sans'    => 'Noto Sans',
-                  'Open Sans'    => 'Open Sans',
-                  'Lato'         => 'Lato',
-                  'Source Sans Pro'   => 'Source Sans Pro',
-                  'Lora'         => 'Lora',
-                  'Ubuntu'   => 'Ubuntu',
-                  'Libre Baskerville'      => 'Libre Baskerville',
-                  'Roboto'    => 'Roboto'
+                  'Roboto'  =>   'Roboto',
+                  'Open Sans' =>  'Open Sans',
+                  'Nunito Sans' =>   'Nunito Sans', 
+                  'Lato'  =>  'Lato',
+                  'Source Sans Pro' =>   'Source Sans Pro',
+                  'Raleway' =>  'Raleway',
+                  'Merriweather'  =>    'Merriweather',
+                  'Lora'  =>  'Lora',
+                  'Ubuntu'  => 'Ubuntu',  
+                  'Titillium Web' =>  'Titillium Web',
+                  'Muli'  =>  'Muli',
+                  'Libre Franklin'  =>    'Libre Franklin',
+                  'Nunito'  =>  'Nunito',
+                  'Libre Baskerville' =>  'Libre Baskerville',
+                  'Josefin Sans'  =>  'Josefin Sans',
+                  'Trirong' =>  'Trirong',
+                  'Cormorant' =>  'Cormorant',
+                  'Josefin Slab'  =>  'Josefin Slab',
+                  'Cabin' =>  'Cabin',
+                  'Catamaran' =>  'Catamaran',
+                  'Proza Libre' =>  'Proza Libre',
+                  'Prompt'  =>  'Prompt'
                 )
             )
         )       
@@ -191,42 +205,20 @@ textarea {
   font-family: <?php echo get_theme_mod('youre_hired_font_type') . ', sans-serif'; ?>;
 }
 
-.floating-icons,
-.contact .fa,
-a .fa,
-a:visited .fa,
-button:hover,
-html input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+.name-headline .fa,
+.name-headline a .fa,
+.name-headline a:visited .fa {
   color: <?php echo get_theme_mod('youre_hired_accent_color'); ?>;
 }
 
-.contact img,
-.recommendations img,
-.about h3,
-.experience-title h3,
-.education-title h3,
-.languages-title h3,
-.recommendations-title h3,
-.projects-title h3,
-.download-resume {
+.exp-title,
+.exp-dates {
   border-color: <?php echo get_theme_mod('youre_hired_accent_color'); ?>;
 }
 
-.name,
-.skills h3,
-footer {
+.contact {
   background-color: <?php echo get_theme_mod('youre_hired_accent_color'); ?>;
 }
-
-footer button:hover,
-footer html input[type="button"]:hover,
-footer input[type="reset"]:hover,
-footer input[type="submit"]:hover {
-  color: <?php echo get_theme_mod('youre_hired_accent_color'); ?>;
-}
-
 
   <?php if( get_theme_mod('youre_hired_custom_css') != '' ) {
     echo get_theme_mod('youre_hired_custom_css');
@@ -241,7 +233,7 @@ footer input[type="submit"]:hover {
 // Add theme support for Custom Backgrounds
 
 $defaults = array(
-  'default-color' => '#ffffff',
+  'default-color' => '#acacac',
 );
 add_theme_support( 'custom-background', $defaults );
 

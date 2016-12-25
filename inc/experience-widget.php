@@ -32,38 +32,38 @@ class experience_widget extends WP_Widget {
    * @param array $instance Saved values from database.
    */
   public function widget( $args, $instance ) {
-    echo $args['before_widget'];
-    if ( ! empty( $instance['title'] ) ) {
-      echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
-    }
+    // echo $args['before_widget'];
+    // if ( ! empty( $instance['title'] ) ) {
+    //   echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
+    // }
 
+    $title = sanitize_text_field( $instance['title'] );
     $company = sanitize_text_field( $instance['company'] );
+    $logo = sanitize_text_field( $instance['logo'] );
     $location = sanitize_text_field( $instance['location'] );
     $dates = sanitize_text_field( $instance['dates'] );
+    $textarea = ( $instance['textarea'] );
 
 
-    // if the name field is set
-    if ( ! empty( $instance['company'] ) ) {
-      echo ( '<span class="company">' . $company . '</span>' );
-    }
-
-    // if the location field is set
-    if ( ! empty( $instance['location'] ) ) {
-      echo ( '<span class="location">' . $location . '</span>' );
-    }
-
-    // if the dates field is set
-    if ( ! empty( $instance['dates'] ) ) {
-      echo ( '<span class="dates">' . $dates . '</span>' );
-    }
+    // if the title field is set
+    if ( ! empty( $instance['title'] ) ) {
 
 
+    echo (  '<div class="section group">
+                <div class="col span_4_of_12">
+                  <div class="exp-dates">'. $dates .' </div>
+                  <img class="company-logo" src="'. $logo . '">
+                </div>
 
-    // if the textarea field is set
-    $textarea = apply_filters( 'widget_textarea', empty( $instance['textarea'] ) ? '' : $instance['textarea'], $instance );
-  
-    if ( ! empty( $instance['textarea'] ) ) {
-       echo ( '<div class="experience-text">' . wpautop($textarea) . '</div>' );
+                <div class="col span_8_of_12">
+                  <div class="exp-title">'. $title .' </div>
+                  <div class="exp-company">'. $company .' </div>
+                  <div class="exp-location">'. $location .' </div>
+                  <div class="exp-text">' . wpautop($textarea) .' </div>
+                </div>
+              </div>
+
+    ' );
     }
 
     echo $args['after_widget'];
@@ -79,12 +79,12 @@ class experience_widget extends WP_Widget {
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'youre-hired' );
     $company = ! empty( $instance['company'] ) ? $instance['company'] : __( 'Company', 'youre-hired' );
+    $logo = ! empty( $instance['logo'] ) ? $instance['logo'] : __( '', 'youre-hired' );
     $location = ! empty( $instance['location'] ) ? $instance['location'] : __( 'Location', 'youre-hired' );
     $dates = ! empty( $instance['dates'] ) ? $instance['dates'] : __( 'Dates', 'youre-hired' );
     $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( '', 'youre-hired' );
 
     ?>
-
 
     <p>
     <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Position Title:', 'youre-hired' ); ?></label> 
@@ -96,6 +96,12 @@ class experience_widget extends WP_Widget {
     <label for="<?php echo $this->get_field_id( 'company' ); ?>"><?php _e( 'Company Name:', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'company' ); ?>" name="<?php echo $this->get_field_name( 'company' ); ?>" type="text" 
     value="<?php echo esc_attr( $company ); ?>">
+    </p>
+
+    <p>
+    <label for="<?php echo $this->get_field_id( 'logo' ); ?>"><?php _e( 'Company Logo (Image URL):', 'youre-hired' ); ?></label> 
+    <input class="widefat" id="<?php echo $this->get_field_id( 'logo' ); ?>" name="<?php echo $this->get_field_name( 'logo' ); ?>" type="text" 
+    value="<?php echo esc_attr( $logo ); ?>">
     </p>
 
     <p>
@@ -112,7 +118,7 @@ class experience_widget extends WP_Widget {
 
     <p>
     <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Explain your experience in this position:', 'youre-hired'); ?></label>
-    <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
+    <textarea rows="5" cols="40" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 
     <?php 
@@ -132,6 +138,7 @@ class experience_widget extends WP_Widget {
     $instance = $old_instance;
     $instance['title'] = strip_tags( $new_instance['title'] );
     $instance['company'] = strip_tags( $new_instance['company'] );
+    $instance['logo'] = strip_tags( $new_instance['logo'] );
     $instance['location'] = strip_tags( $new_instance['location'] );
     $instance['dates'] = strip_tags( $new_instance['dates'] );
 

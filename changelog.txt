@@ -25,3 +25,17 @@ Version 1.4
 ---------------------------------------
 
 - Security update for URLs the user enters for social media profiles and similar fields.
+
+Version 2.0
+12/24/16
+---------------------------------------
+
+- All new design for version 2.0. It's more modern and has better responsiveness.
+- Additional social media icons added for a total of 16.
+- Additional Google Fonts addded for a total of 22.
+- Updated widgets to make them easier to use.
+- Removed the menu so that you no longer have to deal with bookmarks and creating special links.
+- Simplified the Skills section.
+- Added sections for "Accomplishments" and Additional Info."
+- Removed "Projects" section (You can mention projects in the two new sections referenced above.)
+- Merged the "Recommendations" into the general "About Me" section. They're now called "Quotes."

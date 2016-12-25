@@ -4,7 +4,6 @@
 ?>
 <?php get_header(); ?>
 
-<div class="full-container">
 <div class="page-container">
 
   <div class="section group">
@@ -29,7 +28,6 @@
 
   </div>
 
-</div>
 </div>
 
 <?php get_footer(); ?>

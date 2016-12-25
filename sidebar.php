@@ -1,4 +1,4 @@
-<div class="demo">
+<div class="sidebar">
 	<?php if ( ! dynamic_sidebar( 'blog') ): ?>
 
 	<h3>Sidebar Setup</h3>

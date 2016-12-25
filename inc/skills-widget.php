@@ -19,7 +19,7 @@ class skills_widget extends WP_Widget {
     parent::__construct(
       'skills_widget', // Base ID
       __( 'Skills', 'youre-hired' ), // Name
-      array( 'description' => __( 'Drag me to the Skills widget area. You can use multiple widgets for more than one group of skills.', 'youre-hired' ), ) // Args
+      array( 'description' => __( 'Drag me to the Skills widget area.', 'youre-hired' ), ) // Args
     );
   }
 
@@ -58,16 +58,11 @@ class skills_widget extends WP_Widget {
     $textarea = ! empty( $instance['textarea'] ) ? $instance['textarea'] : __( 'Skills List', 'youre-hired' );
       ?>
 
-
     <p>
-    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Skills Group Title:', 'youre-hired' ); ?></label> 
-    <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
-    value="<?php echo esc_attr( $title ); ?>">
+      <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Enter a list of skills without any paragraph breaks.', 'youre-hired'); ?></label>
     </p>
-
     <p>
-    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Enter one skill per line:', 'youre-hired'); ?></label>
-    <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
+      <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 
     <?php 

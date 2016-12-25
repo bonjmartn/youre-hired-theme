@@ -13,18 +13,3 @@
   </head>
 
 <body <?php body_class(); ?>>
-
-<div class="main-navigation" role="navigation">
-
-        <?php
-        wp_nav_menu( array(
-          'menu'              => 'header-menu',
-          'theme_location'    => 'header-menu',
-          'depth'             => 3,
-          'container'         => '',
-          'container_id'      => 'main-navigation',
-          'menu_class'        => '')
-        );
-        ?>
-
-</div>

@@ -19,8 +19,8 @@ function skills_widget( $name, $id, $description ) {
 		'name' => sprintf( $name ),	 
 		'id' => $id, 
 		'description' => sprintf( $description ),
-		'before_widget' => '<li>',
-		'after_widget' => '</li>',
+		'before_widget' => '',
+		'after_widget' => '',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));
@@ -39,51 +39,21 @@ function create_widget( $name, $id, $description ) {
 	));
 }
 
-function contact_widget( $name, $id, $description ) {
-
-	register_sidebar(array(
-		'name' => sprintf( $name ),	 
-		'id' => $id, 
-		'description' => sprintf( $description ),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-}
-
-function footer_widget( $name, $id, $description ) {
-
-	register_sidebar(array(
-		'name' => sprintf( $name ),	 
-		'id' => $id, 
-		'description' => sprintf( $description ),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-}
-
 // Create Resume Widget Areas
 
 resume_widget( 'Photo and Contact Info', 'photo-contact', 'Photo and contact info at the top-left of the page' );
 resume_widget( 'Summary - Name, Title, Social', 'summary', 'Main summary area with your name, title, and social icons' );
-resume_widget( 'Resume Download', 'resume-download', 'Offer a file download version of your resume' );
-resume_widget( 'About Me', 'about-me', 'About Me paragraph' );
-resume_widget( 'Experience', 'experience', 'Work experience - Add as many widgets as you need' );
-resume_widget( 'Education', 'education', 'Education - Add as many widgets as you need' );
-resume_widget( 'Languages', 'languages', 'Languages - Add as many widgets as you need' );
-resume_widget( 'Recommendations', 'recommendations', 'Recommendations - Add as many widgets as you need' );
-skills_widget( 'Skills', 'skills', 'Skills area' );
+resume_widget( 'Resume Download', 'resume-download', 'Offer a file download version of your resume. See documentation for instructions.' );
+skills_widget( 'Skills', 'skills', 'Use the "Skills" widget here.' );
+resume_widget( 'About Me', 'about-me', 'Use the "About Me" and "Quotes" widgets here. Add as many Quotes widgets as you need.' );
+resume_widget( 'Experience', 'experience', 'Use the "Experience" widgets here. Add as many widgets as you need.' );
+resume_widget( 'Education', 'education', 'Use the "Education" widgets here. Add as many widgets as you need.' );
+resume_widget( 'Languages', 'languages', 'Use the "Languages" widgets here. Add as many widgets as you need.' );
+resume_widget( 'Accomplishments', 'accomplishments', 'Use a Text widget here to add any information you want to display.' );
+resume_widget( 'Additional Info', 'additional', 'Use a Text widget here to add any information you want to display.' );
 
 // Create Widget areas for Pages and Blog Posts
 
 create_widget( 'Sidebar', 'blog', 'Displays on the right of blog posts and pages' );
-
-// Create Widget areas for Footer
-
-contact_widget( 'Footer Contact Form', 'contact-footer', 'Add a contact form to the footer' );
-footer_widget( 'Footer Open Content', 'content-footer', 'Add any widgets to the right half of the footer' );
 
 ?>

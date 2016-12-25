@@ -60,8 +60,14 @@ class about_widget extends WP_Widget {
 
 
     <p>
-    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Write a paragraph about yourself', 'youre-hired'); ?></label>
-    <textarea rows="5" cols="30" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'youre-hired' ); ?></label> 
+    <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
+    value="<?php echo esc_attr( $title ); ?>">
+    </p>
+
+    <p>
+    <label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Write a paragraph or two about yourself.', 'youre-hired'); ?></label>
+    <textarea rows="5" cols="40" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
     </p>
 
     <?php 

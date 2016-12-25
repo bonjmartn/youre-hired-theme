@@ -50,10 +50,6 @@ endif;
 
 add_action( 'after_setup_theme', 'hired_setup' );
 
-// Hide or show the Admin Toolbar
-
-show_admin_bar( false );
-
 // Check for Front Page being used
 
 function hired_filter_front_page_template( $template ) {
@@ -65,7 +61,7 @@ add_filter( 'frontpage_template', 'hired_filter_front_page_template' );
 
 function hired_google_fonts() {
   $query_args = array(
-    'family' => 'Noto+Sans:400,700,700italic,400italic|Open+Sans:400,700,700italic,400italic|Roboto:400,400italic,700,700italic|Lato:400,400italic,700,700italic|Source+Sans+Pro:400,400italic,700,700italic|Lora:400,400italic,700|Ubuntu:400,400italic,700,700italic|Libre+Baskerville:400,400italic,700',
+    'family' => 'Cabin:400,400i,600,600i,700,700i|Cormorant:400,400i,600,600i,700,700i|Josefin+Sans:400,400i,600,600i,700,700i|Josefin+Slab:400,400i,600,600i,700,700i|Lato:400,400i,700,700i|Libre+Baskerville:400,400i,700|Libre+Franklin:400,400i,600,600i,700,700i|Lora:400,400i,700,700i|Merriweather:400,400i,700,700i|Muli:400,400i,600,600i,700,700i|Nunito+Sans:400,400i,600,600i,700,700i|Nunito:400,400i,600,600i,700,700i|Open+Sans:400,400i,600,600i,700,700i|Prompt:400,400i,600,600i,700,700i|Proza+Libre:400,400i,600,600i,700,700i|Raleway:400,400i,600,600i,700,700i|Roboto:400,400i,500,500i,700,700i|Source+Sans+Pro:400,400i,600,600i,700,700i|Titillium+Web:400,400i,600,600i,700,700i|Trirong:400,400i,600,600i,700,700i|Ubuntu:400,400i,500,500i,700,700i',
     'subset' => 'latin,latin-ext',
   );
   wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
@@ -80,20 +76,6 @@ function hired_content_width() {
 }
 add_action( 'after_setup_theme', 'hired_content_width', 0 );
 
-// MENUS!
-
-function hired_register_theme_menus() {
-
-	register_nav_menus (
-		array (
-			'header-menu' => __( 'Header Menu', 'youre-hired')
-	));
-}
-
-// Register Menus
-add_action ( 'init', 'hired_register_theme_menus');
-
-
 // WIDGETS!
 
 require_once get_template_directory() . '/inc/widgets.php';
@@ -107,7 +89,7 @@ require_once get_template_directory() . '/inc/resume-download-widget.php';
 require_once get_template_directory() . '/inc/skills-widget.php';
 require_once get_template_directory() . '/inc/education-widget.php';
 require_once get_template_directory() . '/inc/languages-widget.php';
-require_once get_template_directory() . '/inc/recommendations-widget.php';
+require_once get_template_directory() . '/inc/quotes-widget.php';
 
 // THEME CUSTOMIZER!
 

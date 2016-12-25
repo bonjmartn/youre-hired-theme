@@ -19,7 +19,7 @@ class download_widget extends WP_Widget {
     parent::__construct(
       'download_widget', // Base ID
       __( 'Resume Download', 'youre-hired' ), // Name
-      array( 'description' => __( 'Drag me to the "Resume Download" widget area', 'youre-hired' ), ) // Args
+      array( 'description' => __( 'Drag me to the Resume Download widget area', 'youre-hired' ), ) // Args
     );
   }
 
@@ -42,7 +42,7 @@ class download_widget extends WP_Widget {
 
     // if the linkURL field is set
     if ( ! empty( $instance['linkURL'] ) ) {
-      echo ( '<div class="download-resume"><a href="' . $linkURL . '">' . $linktext . '</a></div>' );
+      echo ( '<a class="download-resume" href="' . $linkURL . '">' . $linktext . '</a>' );
     }
 
     echo $args['after_widget'];
@@ -69,7 +69,7 @@ class download_widget extends WP_Widget {
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'linkURL' ); ?>"><?php _e( 'Link URL', 'youre-hired' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'linkURL' ); ?>"><?php _e( 'File URL', 'youre-hired' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'linkURL' ); ?>" name="<?php echo $this->get_field_name( 'linkURL' ); ?>" type="text" 
     value="<?php echo esc_attr( $linkURL ); ?>">
     </p>
